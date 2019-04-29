@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Lesson.ExtentionMethods.cs" />
-    <Compile Include="Lesson.Deconstruction.cs" />
     <Compile Include="Practice.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
