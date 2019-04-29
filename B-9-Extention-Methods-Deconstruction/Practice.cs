@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Base_Lesson_9.Practice
 {
-    public static class Practice
-    {
-        /// <summary>
-        /// L9-P-EX-1/2
-        /// Создать структуру Coordinates (трехмерных). 
-        /// Добавить экземплярный метод деконструкции значений координат.
-        /// Вывести на консоль длину вектора по координатам.
-        /// </summary>
-        public static void L9_P_EX_1_from_2()
+	public static class Practice
+	{
+		/// <summary>
+		/// L9-P-EX-1/2
+		/// Создать структуру Coordinates (трехмерных). 
+		/// Добавить экземплярный метод деконструкции значений координат.
+		/// Вывести на консоль длину вектора по координатам.
+		/// </summary>
+		public static void L9_P_EX_1_from_2()
 		{
 			Coordinates coord = new Coordinates(11, 12, 33);
 			var (X, Y, Z, vector) = coord;
-			Console.WriteLine(vector);
+			Console.WriteLine($" Длина вектора={vector}");
 			Console.ReadKey();
 		}
 		public struct Coordinates
@@ -37,37 +37,40 @@ namespace Base_Lesson_9.Practice
 				X = x;
 				Y = y;
 				Z = z;
-				vector =Math.Round(Math.Sqrt(X*X+Y*Y+Z*Z),2);
+				vector = Math.Round(Math.Sqrt(X * X + Y * Y + Z * Z), 2);
 			}
 		}
 
+
+
+		/// <summary>
+		/// L9-P-EX-2/2. 
+		/// Создать деконструктор для обьекта DateTime 
+		/// (год, месяц, день, час, минуты, секунды). 
+		/// Получить и вывести на консоль текущее время.
+		/// Использовать пустые параметры.
+		/// </summary>
+		public static void L9_P_EX_2_from_2()
+		{
+			DateTime now = new DateTime();
+			var (_, month, day, hour, minutes, _) = now;
+			Console.WriteLine($"Сегодня {day}-го {month}, {hour} часов {minutes} минут");
+			Console.ReadKey();
+
+		}
+		
+		public static void Deconstruct(this DateTime now, out int year, out string month, out int day, out int hours, out int minutes, out int seconds)
+		{
+				year = DateTime.Now.Year;
+				month = DateTime.Now.ToString("MMMM");
+				day = DateTime.Now.Day;
+				hours = DateTime.Now.Hour;
+				minutes = DateTime.Now.Minute;
+				seconds = DateTime.Now.Second;
+		}
+		
+	}
 	
 
-        /// <summary>
-        /// L9-P-EX-2/2. 
-        /// Создать деконструктор для обьекта DateTime 
-        /// (год, месяц, день, час, минуты, секунды). 
-        /// Получить и вывести на консоль текущее время.
-        /// Использовать пустые параметры.
-        /// </summary>
-        public static void L9_P_EX_2_from_2()
-        {
-	        currentHour
-			DateTime date = new DateTime();
-	        var (_, _, _, currentHour, currentMinute, _) = date;
-	        Console.WriteLine(currentHour + " " + currentMinute);
-		}
-        public static class ExtentionDateTime
-        {
-	        public static void Deconstruct(out int year, out int month, out int day, out int hour, out int minute, out int second)
-	        {
-		        year = DateTime.Now.Year;
-		        month = DateTime.Now.Month;
-		        day = DateTime.Now.Day;
-		        hour = DateTime.Now.Hour;
-		        minute = DateTime.Now.Minute;
-		        second = DateTime.Now.Second;
-	        }
-        }
-	}
+	
 }

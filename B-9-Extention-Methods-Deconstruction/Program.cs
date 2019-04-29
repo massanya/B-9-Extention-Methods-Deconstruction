@@ -12,7 +12,7 @@ namespace Base_Lesson_9
         {
            Practice.Practice.L9_P_EX_1_from_2();
             
-			//Practice.Practice.L9_P_EX_2_from_2();
+			Practice.Practice.L9_P_EX_2_from_2();
 			//Lesson.Lesson.DeconstructExample();
 		}
     }
